@@ -15,32 +15,31 @@ using namespace std;
 int main()
 {
 	int mx = INT_MAX;
-    int flag = false;
+	int flag = false;
 	int n; // the number of temperatures to analyse
 	cin >> n; cin.ignore();
-    if (!n)
-        mx = 0;
+	if (!n)
+        	mx = 0;
 	for (int i = 0; i < n; i++)
 	{
-        int t; // a temperature expressed as an integer 
+		int t; // a temperature expressed as an integer 
 		       // ranging from -273 to 5526
 		cin >> t; cin.ignore();
-        // cout << t << ' ';
+		// cout << t << ' ';
 		if (abs(t) <= abs(mx))
 		{
-            if (abs(t) == abs(mx) && t < 0 && mx > 0)
-                flag = true;
-            mx = t;
-        }
-    }
+            		if (abs(t) == abs(mx) && t < 0 && mx > 0)
+                		flag = true;
+            		mx = t;
+        	}
+    	}
 
-    // Write an answer using cout. DON'T FORGET THE "<< endl"
-    // To debug: cerr << "Debug messages..." << endl;
+    	// Write an answer using cout. DON'T FORGET THE "<< endl"
+    	// To debug: cerr << "Debug messages..." << endl;
 
-    // cout << "result" << endl;
-    if (flag)
-        cout << abs(mx) << '\n';
-    else
-        cout << mx << '\n';
+    	// cout << "result" << endl;
+	if (flag)
+		cout << abs(mx) << '\n';
+	else
+		cout << mx << '\n';
 }
-
