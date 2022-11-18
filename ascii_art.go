@@ -51,7 +51,8 @@ func main() {
             }
             offset := 0
             for offset < L {
-                fmt.Print(string(arr[i][L * pos + offset]))
+                idx := L * pos + offset
+                fmt.Print(string(arr[i][idx]))
                 offset++
             }
         }
