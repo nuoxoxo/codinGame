@@ -47,8 +47,9 @@ int	main()
 		{
 			fname = fname.substr(last + 1);
 			it = mp.find(fname);
-			if (it != mp.end())
-				output = it->second;
+			if (it == mp.end())
+				continue ;
+			output = it->second;
 		}
 		cout << output << endl;
 	}
