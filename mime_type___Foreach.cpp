@@ -28,7 +28,12 @@ int	main()
 		cin >> ext >> mt; cin.ignore();
 	
 		// setting up map
-		for_each(ext.begin(), ext.end(), [](char & c){c = tolower(c);});
+
+		// for_each(ext.begin(), ext.end(),
+		// 	[](char & c){c = tolower(c);});
+
+		transform(ext.begin(), ext.end(), ext.begin(),
+			[](unsigned char c) { return tolower(c); });
 		mp[ext] = mt;
 	}
 
@@ -41,15 +46,19 @@ int	main()
 		int	last;
 
 		getline(cin, fname);
-		for_each(fname.begin(), fname.end(), [](char & c){c = tolower(c);});
+		
+		// for_each(ext.begin(), ext.end(),
+		// 	[](char & c){c = tolower(c);});
+		
+		transform(fname.begin(), fname.end(), fname.begin(),
+			[](unsigned char c) { return tolower(c); });
 		last = fname.find_last_of(".");
 		if (last ^ -1)
 		{
 			fname = fname.substr(last + 1);
 			it = mp.find(fname);
-			if (it == mp.end())
-				continue ;
-			output = it->second;
+			if (it != mp.end())
+				output = it->second;
 		}
 		cout << output << endl;
 	}
